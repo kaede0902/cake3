@@ -1,2 +1,12 @@
-# cake3
-cake new 3 rep
+# cake
+cakePHP_superIntro_book
+
+## Doing
+Making basic CRUD app.
+
+
+
+
+
+## Refered
+* 'CakePHP Super Intro' by Tuyano Syoda, Houwa System.
