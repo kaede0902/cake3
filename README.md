@@ -82,9 +82,29 @@ and check this. In InternsController, write:
 ```
 debug($this->Interns);
 ```
-returns data structure:  
-![alt](intern_table.png)
+You can see the database , the intern table.  
 
+![alt](intern_table.png)
+## Passing data
+That was happening in Controller.  
+To see in View, you need to pass the data.  
+Write this in InternsController::index()
+```
+$this->loadComponent('Paginator');
+$interns = $this->Paginator->paginate(
+    $this->Interns->find()
+    );
+
+$this->set(compact('interns'));
+debug($this->Interns);
+
+```
+Cushioning `paginator`,
+`$this->loadComponent('Paginator');`  
+`$this->Paginator->paginate()`  
+Enables to confirm the DB simply.  
+### img
+![alt](intern_pass_data.png)
 ## todo
 ### top
 Then make top page, and inserting calc, 
