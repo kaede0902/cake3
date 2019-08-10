@@ -107,6 +107,8 @@ Enables to confirm the DB simply.
 ![alt](intern_pass_data.png)
 ## todo
 ### top
+
 Then make top page, and inserting calc, 
 and deleting calc by db
 
+![alt](inten_top.jpeg)
