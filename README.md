@@ -9,6 +9,7 @@ To start, and see in chrome, type:
 bin/cake server
 ```
 You can see status in `http://localhost:8765/`  
+![alt](8765.png)
 ## controller
 To make a page, you need to make a proper controller.  
 To make `localhost://8765/intern` page,  
