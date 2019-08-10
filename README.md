@@ -111,4 +111,4 @@ Enables to confirm the DB simply.
 Then make top page, and inserting calc, 
 and deleting calc by db
 
-![alt](inten_top.jpeg)
+![alt](intern_top.jpeg)
