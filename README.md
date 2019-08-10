@@ -2,15 +2,18 @@
 ## why
 find out the need of crud basic from ceress hackerson  
 I made new rep `cake3` and this redo article.  
-## start
-### Access index.ctp
-from executing 
+This is the usage from the MIN.  
+## Start local host server
+To start, and see in chrome, type:  
 ```
 bin/cake server
 ```
 You can see status in `http://localhost:8765/`  
-In `src/Controller/`, make anything like:  
-`InternController.php`  
+## controller
+To make a page, you need to make a proper controller.  
+To make `localhost://8765/intern` page,  
+You have to make `InternController.php`  
+In `src/Controller/`  
 Inside this, write:
 ```
 <?php
@@ -25,18 +28,23 @@ class InternController extends AppController {
 }
 ```
 This refers to the views index.php file.  
-You can access by browser `8765/intern`  
-In this cake,  
+Now You can access by browser `8765/intern`  
+## View
+If you want to write contents here, 
+make view file. In this case,
 ```
 src/Template/Intern/index.ctp
 ```
-is needed. So make it. Try this inside  
+is needed. So make it. Then write this inside  
 `<h1><center>hello</center></h1>`  
 If it worked, you will see:  
-![alt](intern_hello.png)
+![h1HelloPrinted](intern_hello.png)
+You could access to `/intern` and 
+view the view file here.  
 
-### select from db
+## Access Database
 In Intern/index.ctp, show data from db.
+### Make Table
 Create table by SQL, like:  
 ```
 CREATE TABLE interns (
@@ -44,13 +52,23 @@ CREATE TABLE interns (
    email VARCHAR(255) NOT NULL,
 );
 ```
+### Insert Table
 Insert some records to the table:  
 ```
 INSERT INTO interns (email) VALUES
 ('cakephp@example.com');
 ```
-Then write the table connection in Model:  
-Make InternsTable. Everything are pural.  
+### Model
+This is `MVC` frame work. we made:  
+VIEW, CONTROLLER, M left.  
+This is MODEL. So let's make it.  
+Write the table connection in Model here:  
+```
+Model/Table/
+```
+Make InternsTable.php  
+Careful! Everything are pural.  
+Inside here:  
 ```
 namespace App\Model\Table;
 
