@@ -103,8 +103,29 @@ Cushioning `paginator`,
 `$this->loadComponent('Paginator');`  
 `$this->Paginator->paginate()`  
 Enables to confirm the DB simply.  
-### img
+
 ![alt](intern_pass_data.png)
+
+## Show the table by for each
+In index.ctp,
+```
+
+<?php foreach($interns->toArray() as $obj): ?>
+<?= $obj->email?>
+<?php endforeach; ?>
+
+
+```
+
+
+
+
+
+
+
+
+
+
 ## todo
 ### top
 
@@ -112,3 +133,4 @@ Then make top page, and inserting calc,
 and deleting calc by db
 
 ![alt](intern_top.jpeg)
+
