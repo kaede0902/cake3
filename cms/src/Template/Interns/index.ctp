@@ -2,7 +2,8 @@
 
 
 <?php foreach($interns->toArray() as $obj): ?>
-<?= $obj->email?>
+<h1> <?= $obj->id?></h1>
+<h1> <?= $obj->email?></h1>
 <?php endforeach; ?>
 
 

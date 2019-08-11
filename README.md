@@ -109,19 +109,21 @@ Enables to confirm the DB simply.
 ## Show the table by for each
 In index.ctp,
 ```
-
 <?php foreach($interns->toArray() as $obj): ?>
-<?= $obj->email?>
+<h1> <?= $obj->id?></h1>
+<h1> <?= $obj->email?></h1>
 <?php endforeach; ?>
 
-
 ```
+Then you can see all the email data of 
+mail list 
 
+![alt](intern_email_list.png)
 
-
-
-
-
+## Link to the Men clicked
+That index.ctp was a list of all intern students,  
+so make a link to `detail.ctp` page,  
+and make the page.  
 
 
 
