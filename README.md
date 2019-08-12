@@ -8,6 +8,7 @@ To start, and see in chrome, type:
 ```
 bin/cake server
 ```
+![alt](cake_server_terminal.png)  
 You can see status in `http://localhost:8765/`  
 ![alt](8765.png)
 ## controller
