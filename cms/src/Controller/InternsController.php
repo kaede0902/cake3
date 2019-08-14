@@ -10,6 +10,5 @@ class InternsController extends AppController {
             $this->Interns->find());
 
         $this->set(compact('interns'));
-        debug($this->Interns);
     }
 }

@@ -112,20 +112,60 @@ In index.ctp,
 ```
 <?php foreach($interns->toArray() as $obj): ?>
 <h1> <?= $obj->id?></h1>
+<h1> <?= $obj->name?></h1>
 <h1> <?= $obj->email?></h1>
+<h1> <?= $obj->location?></h1>
 <?php endforeach; ?>
-
 ```
 Then you can see all the email data of 
 mail list 
-
 ![alt](intern_email_list.png)
+
+### Add more data to 9
+Add column desc
+cake, vue, rails, jq, react, laravel,
+sato, suzuki, tanaka, Tom, Bob, Emma,
+Ykhm, Tko, Tokyo, Kyot, US, UK, USSR,
+
+Kubo, Seki, Mori,
+cobol,Java, Excel,
+Fuksm, Oita, Ueno,
+
+insert into interns
+(email,name,text,location)
+values ('sh@gmail.com', 'Name', 'Desc', 'Tokyo')
 
 ## Link to the Men clicked
 That index.ctp was a list of all intern students,  
 so make a link to `detail.ctp` page,  
 and make the page.  
 
+## link CSS
+Write this in index.ctp
+```
+$this->Html->css('interns');
+```
+## migration cmd
+`bin/cake migration...` `bin/cake migrations migarte`
+can make a table, 
+insert column, del column, and del tabel,
+This makes migration file in config/Migration/
+### make a table
+bin/cake bake migration CreateTableName  
+name:string description:text created modified  
+///// this is not moving now
+### Del a table
+bin/cake bake migration DropTableName  
+### Add a column
+bin/cake bake migration AddPriceToTableName price:decimal
+### Delete a column
+bin/cake bake migration RemovePriceFromTableName price
+## Bake Cmd
+`bin/cake bake...` cmd can make proper 
+[controller, model, ctps(index,add,edit,view),]  
+
+
+https://qiita.com/ozawan/items/8144e02ca70519f3dcaf
 
 
 
