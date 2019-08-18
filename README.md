@@ -217,6 +217,7 @@ And all the files in `config/Migrations/` run.
 If No errs, the table will be created.  
 
 ![alt](img/migrated.png)
+![alt](img/migrated_2.png)
 
 It also make a migrate file:  
 
@@ -240,7 +241,7 @@ class Migrate extends AbstractMigration
 ```
 See the table in MySQL:  
 
-![alt](products_desc.png)
+![alt](img/products_desc.png)
 
 `id` auto++ column was made automatically.  
 
