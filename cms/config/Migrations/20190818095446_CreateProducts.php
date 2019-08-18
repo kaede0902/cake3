@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateTests extends AbstractMigration
+class CreateProducts extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,18 +12,13 @@ class CreateTests extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('tests');
-        $table->addColumn('id', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => false,
-        ]);
-        $table->addColumn('int', 'string', [
+        $table = $this->table('products');
+        $table->addColumn('name', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('dccc', 'string', [
+        $table->addColumn('des', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
@@ -34,6 +29,10 @@ class CreateTests extends AbstractMigration
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
+            'default' => null,
+            'null' => false,
+        ]);
+        $table->addColumn('modified', 'datetime', [
             'default' => null,
             'null' => false,
         ]);
