@@ -210,9 +210,9 @@ That simple bake command made this file!!
 
 Then you run 
 ```
-bin/cake migration migrate
+bin/cake migrations migrate
 ```
-NO BAKE IN MIGRATE  
+NO BAKE IN MIGRATE, migrationS are plural!!  
 And all the files in `config/Migrations/` run.  
 If No errs, the table will be created.  
 
@@ -244,16 +244,227 @@ See the table in MySQL:
 ![alt](img/products_desc.png)
 
 `id` auto++ column was made automatically.  
+`string` and `text` are same varchar255 type.  
 
 ### Del a table
 bin/cake bake migration DropTableName  
 ### Add a column
+Try this.  
+```
 bin/cake bake migration AddPriceToTableName price:decimal
+```
+```
+Creating file /Users/kaede/code/cake3/cms/config/Migrations/20190818110206_AddPriceToProducts.php
+Wrote `/Users/kaede/code/cake3/cms/config/Migrations/20190818110206_AddPriceToProducts.php`
+```
+Inside the php file:  
+```
+public function change()
+{
+    $table = $this->table('products');
+    $table->addColumn('price', 'decimal', [
+            'default' => null,
+            'null' => false,
+    ]);
+    $table->update();
+}
+```
+Then, migrations.  
+```
+RYOs-MBP:cms kaede$ bin/cake migrations migrate
+using migration paths
+- /Users/kaede/code/cake3/cms/config/Migrations
+using seed paths
+- /Users/kaede/code/cake3/cms/config/Seeds
+using environment default
+using adapter mysql
+using database cake_cms
+
+== 20190818110206 AddPriceToProducts: migrating
+== 20190818110206 AddPriceToProducts: migrated 0.0099s
+
+All Done. Took 0.0112s
+using migration paths
+- /Users/kaede/code/cake3/cms/config/Migrations
+using seed paths
+- /Users/kaede/code/cake3/cms/config/Seeds
+Writing dump file `/Users/kaede/code/cake3/cms/config/Migrations/schema-dump-default.lock`...
+Dump file `/Users/kaede/code/cake3/cms/config/Migrations/schema-dump-default.lock` was successfully written
+```
+Desc in MySQL:  
+```
+MariaDB [cake_cms]> desc products;
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| id       | int(11)       | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255)  | NO   |     | NULL    |                |
+| des      | varchar(255)  | NO   |     | NULL    |                |
+| text     | varchar(255)  | NO   |     | NULL    |                |
+| created  | datetime      | NO   |     | NULL    |                |
+| modified | datetime      | NO   |     | NULL    |                |
+| price    | decimal(10,0) | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+```
+you can see the new column `price` appeared.
+
+### roll back
+`bin/cake migrations rollback` can reset.
+```
+RYOs-MBP:cms kaede$ bin/cake migrations rollback
+using migration paths
+- /Users/kaede/code/cake3/cms/config/Migrations
+using seed paths
+- /Users/kaede/code/cake3/cms/config/Seeds
+using environment default
+using adapter mysql
+using database cake_cms
+ordering by creation time
+
+== 20190818110206 AddPriceToProducts: reverting
+== 20190818110206 AddPriceToProducts: reverted 0.0099s
+
+All Done. Took 0.0115s
+using migration paths
+- /Users/kaede/code/cake3/cms/config/Migrations
+using seed paths
+- /Users/kaede/code/cake3/cms/config/Seeds
+Writing dump file `/Users/kaede/code/cake3/cms/config/Migrations/schema-dump-default.lock`...
+Dump file `/Users/kaede/code/cake3/cms/config/Migrations/schema-dump-default.lock` was successfully written
+```
+Then `migrate`, everything reverted.
+```
+| created  | datetime      | NO   |     | NULL    |                |
+| modified | datetime      | NO   |     | NULL    |                |
+| price    | decimal(10,0) | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+MariaDB [cake_cms]> desc products;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255) | NO   |     | NULL    |                |
+| des      | varchar(255) | NO   |     | NULL    |                |
+| text     | varchar(255) | NO   |     | NULL    |                |
+| created  | datetime     | NO   |     | NULL    |                |
+| modified | datetime     | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+MariaDB [cake_cms]> desc products;
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| id       | int(11)       | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255)  | NO   |     | NULL    |                |
+| des      | varchar(255)  | NO   |     | NULL    |                |
+| text     | varchar(255)  | NO   |     | NULL    |                |
+| created  | datetime      | NO   |     | NULL    |                |
+| modified | datetime      | NO   |     | NULL    |                |
+| price    | decimal(10,0) | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+```
+
 ### Delete a column
 bin/cake bake migration RemovePriceFromTableName price
+```
+RYOs-MBP:cms kaede$ bin/cake bake migration RemoveTextFromProducts text
+
+Creating file /Users/kaede/code/cake3/cms/config/Migrations/20190818112124_RemoveTextFromProducts.php
+Wrote `/Users/kaede/code/cake3/cms/config/Migrations/20190818112124_RemoveTextFromProducts.php`
+```
+```
+public function change()
+{
+    $table = $this->table('products');
+    $table->removeColumn('text');
+    $table->update();
+}
+```
+`bin/cake migrations migrate`
+```
+MariaDB [cake_cms]> desc products;
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| id       | int(11)       | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255)  | NO   |     | NULL    |                |
+| des      | varchar(255)  | NO   |     | NULL    |                |
+| created  | datetime      | NO   |     | NULL    |                |
+| modified | datetime      | NO   |     | NULL    |                |
+| price    | decimal(10,0) | NO   |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+```
+column text was deleted!!!!
+
 ## Bake Cmd
-`bin/cake bake...` cmd can make proper 
+`bin/cake bake all tableNames` cmd can make proper 
 [controller, model, ctps(index,add,edit,view),]  
+```
+RYOs-MBP:cms kaede$ bin/cake bake all products
+Bake All
+---------------------------------------------------------------
+One moment while associations are detected.
+
+Baking table class for Products...
+
+Creating file /Users/kaede/code/cake3/cms/src/Model/Table/ProductsTable.php
+Wrote `/Users/kaede/code/cake3/cms/src/Model/Table/ProductsTable.php`
+
+Baking entity class for Product...
+
+Creating file /Users/kaede/code/cake3/cms/src/Model/Entity/Product.php
+Wrote `/Users/kaede/code/cake3/cms/src/Model/Entity/Product.php`
+
+Baking test fixture for Products...
+
+Creating file /Users/kaede/code/cake3/cms/tests/Fixture/ProductsFixture.php
+Wrote `/Users/kaede/code/cake3/cms/tests/Fixture/ProductsFixture.php`
+Bake is detecting possible fixtures...
+
+Baking test case for App\Model\Table\ProductsTable ...
+
+Baking controller class for Products...
+
+Creating file /Users/kaede/code/cake3/cms/src/Controller/ProductsController.php
+Wrote `/Users/kaede/code/cake3/cms/src/Controller/ProductsController.php`
+Bake is detecting possible fixtures...
+
+Baking test case for App\Controller\ProductsController ...
+
+Creating file /Users/kaede/code/cake3/cms/tests/TestCase/Controller/ProductsControllerTest.php
+Wrote `/Users/kaede/code/cake3/cms/tests/TestCase/Controller/ProductsControllerTest.php`
+
+Baking `index` view template file...
+
+Creating file /Users/kaede/code/cake3/cms/src/Template/Products/index.ctp
+Wrote `/Users/kaede/code/cake3/cms/src/Template/Products/index.ctp`
+
+Baking `view` view template file...
+
+Creating file /Users/kaede/code/cake3/cms/src/Template/Products/view.ctp
+Wrote `/Users/kaede/code/cake3/cms/src/Template/Products/view.ctp`
+
+Baking `add` view template file...
+
+Creating file /Users/kaede/code/cake3/cms/src/Template/Products/add.ctp
+Wrote `/Users/kaede/code/cake3/cms/src/Template/Products/add.ctp`
+
+Baking `edit` view template file...
+
+Creating file /Users/kaede/code/cake3/cms/src/Template/Products/edit.ctp
+Wrote `/Users/kaede/code/cake3/cms/src/Template/Products/edit.ctp`
+Bake All complete.
+```
+This command make a crud basis. (without D)  
+Access to localhost8765/products/  
+
+![alt](img/product_page.png)
+![alt](img/add_product.png)
 
 
 https://qiita.com/ozawan/items/8144e02ca70519f3dcaf
