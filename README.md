@@ -4,6 +4,54 @@ find out the need of crud basic from ceress hackerson
 I made new rep `cake3` and this redo article.  
 This is the usage from the MIN.  
 MAKE KAEDE0902 GREAT CAKE USER!!!  
+## Install Composer
+`curl -s https://getcomposer.org/installer | php`
+```
+RYOs-MBP:cake3 kaede$ curl -s https://getcomposer.org/installer | php
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.9.0) successfully installed to: /Users/kaede/code/cake3/composer.phar
+Use it: php composer.phar
+`php composer.phar create-project --prefer-dist cakephp/app interns`  
+```
+RYOs-MBP:cake3 kaede$ php composer.phar create-project --prefer-dist cakephp/app interns
+Installing cakephp/app (3.8.0)
+- Installing cakephp/app (3.8.0): Downloading (100%)
+Created project in interns
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 79 installs, 0 updates, 0 removals
+- Installing cakephp/plugin-installer (1.1.1): Downloading (100%)
+......
+Writing lock file
+Generating autoload files
+> Cake\Composer\Installer\PluginInstaller::postAutoloadDump
+> App\Console\Installer::postInstall
+Created `config/app.php` file
+Created `/Users/kaede/code/cake3/interns/tmp/cache/views` directory
+```
+Your directory will be like this:  
+```
+▾ interns/
+    ▸ bin/
+    ▸ config/
+    ▸ logs/
+    ▸ plugins/
+    ▸ src/
+    ▸ tests/
+    ▸ tmp/
+    ▸ vendor/
+    ▸ webroot/
+        composer.json
+        composer.lock
+        index.php
+        phpunit.xml.dist
+        README.md
+composer.phar
+README.md
+refer.md
+```
 ## Run server
 To start, and see in chrome, type:  
 ```
@@ -142,20 +190,28 @@ insert into interns
 (email,name,text,location)
 values ('sh@gmail.com', 'Name', 'Desc', 'Tokyo')
 ```
+
+
+
+
 ## Bake
 We made table inside the database, 
 Controller, View, Model files.  
 But these operations are available by `bake` command.  
+
+### Refered
+[CakePHP3のマイグレーションまとめ]
+(https://qiita.com/ozawan/items/8144e02ca70519f3dcaf)
 
 ### migration 
 `bin/cake migration...` `bin/cake migrations migarte`
 can make a table, 
 insert column, del column, and del tabel,
 This command makes migration file in config/Migration/
-### make a table
+#### make a table
 ```
 bin/cake bake migration CreateTableName  
-name:string description:text created modified  
+columnName:string columnName:text created modified  
 ```
 Let's make a sample named `products`
 
@@ -246,9 +302,9 @@ See the table in MySQL:
 `id` auto++ column was made automatically.  
 `string` and `text` are same varchar255 type.  
 
-### Del a table
+#### Del a table
 bin/cake bake migration DropTableName  
-### Add a column
+#### Add a column
 Try this.  
 ```
 bin/cake bake migration AddPriceToTableName price:decimal
@@ -308,7 +364,7 @@ MariaDB [cake_cms]> desc products;
 ```
 you can see the new column `price` appeared.
 
-### roll back
+#### roll back
 `bin/cake migrations rollback` can reset.
 ```
 RYOs-MBP:cms kaede$ bin/cake migrations rollback
@@ -368,7 +424,7 @@ MariaDB [cake_cms]> desc products;
 7 rows in set (0.01 sec)
 ```
 
-### Delete a column
+#### Delete a column
 bin/cake bake migration RemovePriceFromTableName price
 ```
 RYOs-MBP:cms kaede$ bin/cake bake migration RemoveTextFromProducts text
@@ -401,7 +457,13 @@ MariaDB [cake_cms]> desc products;
 ```
 column text was deleted!!!!
 
-## Bake Cmd
+#### change column
+have to write inside on our own?
+
+[CakePHP3のMigration（マイグレーション）でカラム追加・変更・削除を行う]
+(https://www.ritolab.com/entry/61)
+
+### bake all 
 `bin/cake bake all tableNames` cmd can make proper 
 [controller, model, ctps(index,add,edit,view),]  
 ```
@@ -467,7 +529,6 @@ Access to localhost8765/products/
 ![alt](img/add_product.png)
 
 
-https://qiita.com/ozawan/items/8144e02ca70519f3dcaf
 
 
 ## Link to the Men clicked
@@ -483,7 +544,7 @@ $this->Html->css('interns');
 
 
 ## todo
-### top
+LOGIN
 
 Then make top page, and inserting calc, 
 and deleting calc by db
