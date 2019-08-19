@@ -30,3 +30,12 @@ Kkgkin, nihon, kngw,
 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $intern->id], 
     ['confirm' => __('Are you sure you want to delete {0}?', $intern->name)]) ?>
 ```
+## view
+```
+<li><?= $this->Html->link(__('Edit Intern'), ['action' => 'edit', $intern->id]) ?> </li>
+<li><?= $this->Form->postLink(__('Delete Intern'), ['action' => 'delete', $intern->id], 
+    ['confirm' => __('Are you sure you want to delete # {0}?', $intern->id)]) ?> </li>
+<li><?= $this->Html->link(__('List Interns'), ['action' => 'index']) ?> </li>
+<li><?= $this->Html->link(__('New Intern'), ['action' => 'add']) ?> </li>
+
+```

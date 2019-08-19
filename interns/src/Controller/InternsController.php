@@ -12,6 +12,7 @@ class InternsController extends AppController {
         $this->set(compact('interns'));
     }
     public function view($id = null) {
+        $this->set('defaultCss', false);
         $intern = $this->Interns->get($id, [
             'contain' => []
         ]);
