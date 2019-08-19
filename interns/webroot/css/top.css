@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+body {
+    background: #16a085;
+
+}
+.cards {
+    width: 20%;
+    background: #03A9F4;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 2px 2px 10px #000;
+    float: left;
+}
+.cards:hover {
+    box-shadow: 10px 10px 50px #000;
+}
+.image img {
+   width: 100%; 
+   border-radius: 15px;
+}
+.icon {
+    margin-top: -80px;
+    margin-left: 120px;
+    width: 140px;
+}
+.title {
+    text-align: center;
+    font-size: 30px;
+}
+.des {
+    text-align: center;
+    padding: 4px;
+}
+button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #000;
+    color: #FFF;
+    transition: .5s;
+}
+.fixed-btn {
+    background: #2ecc71;
+    font-size: 150px;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    border: 5px solid black;
+    line-height: 0px;
+}

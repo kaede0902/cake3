@@ -1,39 +1,30 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Intern[]|\Cake\Collection\CollectionInterface $interns
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Intern'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="interns index large-9 medium-8 columns content">
-    <h3><?= __('Interns') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($interns as $intern): ?>
-            <tr>
-                <td><?= $this->Number->format($intern->id) ?></td>
-                <td><?= h($intern->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $intern->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $intern->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $intern->id], ['confirm' => __('Are you sure you want to delete # {0}?', $intern->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+<?= $this->Html->css('top'); ?>
+
+<?php foreach ($interns as $intern): ?>
+<div class="cards">
+    <div class="image">
+        <img src="https://dummyimage.com/300x150/00BCD4/fff" >
+    </div>
+        <img class='icon' src="https://image.flaticon.com/icons/svg/109/109718.svg" >
+    <div class="title">
+        <?= $intern->name?>
+    </div>
+    <div class="des">
+        <p> <?= $intern->des?> </p>
+        <p> <?= $intern->location?> </p>
+        <button>
+            <?= $this->Html->link(__('SEE DETAIL'), 
+            ['action' => 'view', $intern->id]) ?>
+        </button>
+    </div>
+</div>
+<?php endforeach; ?>
+
+<button class="fixed-btn">
+<?= $this->Html->link(__('+'), ['action' => 'add']) ?>
+</button>
+
+
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -42,6 +33,8 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __(
+            'Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'
+        )]) ?></p>
     </div>
-</div>
+

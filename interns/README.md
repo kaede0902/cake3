@@ -23,3 +23,10 @@ Fuksm, Oita, Ueno,
 kngw, ykkk, mieji, Harverd, Pari, Moskwo,
 Kkgkin, nihon, kngw,
 
+## index
+```
+<?= $this->Html->link(__('New Intern'), ['action' => 'add']) ?>
+<?= $this->Html->link(__('Edit'), ['action' => 'edit', $intern->id]) ?>
+<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $intern->id], 
+    ['confirm' => __('Are you sure you want to delete {0}?', $intern->name)]) ?>
+```
