@@ -15,6 +15,8 @@ Composer (version 1.9.0) successfully installed to: /Users/kaede/code/cake3/comp
 Use it: php composer.phar
 `php composer.phar create-project --prefer-dist cakephp/app interns`  
 ```
+## Create Project
+```
 RYOs-MBP:cake3 kaede$ php composer.phar create-project --prefer-dist cakephp/app interns
 Installing cakephp/app (3.8.0)
 - Installing cakephp/app (3.8.0): Downloading (100%)
@@ -31,6 +33,7 @@ Generating autoload files
 Created `config/app.php` file
 Created `/Users/kaede/code/cake3/interns/tmp/cache/views` directory
 ```
+
 Your directory will be like this:  
 ```
 ▾ interns/
@@ -52,6 +55,7 @@ composer.phar
 README.md
 refer.md
 ```
+
 ## Run server
 To start, and see in chrome, type:  
 ```
