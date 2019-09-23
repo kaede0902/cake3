@@ -30,6 +30,8 @@ Kkgkin, nihon, kngw,
 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $intern->id], 
     ['confirm' => __('Are you sure you want to delete {0}?', $intern->name)]) ?>
 ```
+paginate by public pagenate limit => 8
+that css
 ## view
 ```
 <li><?= $this->Html->link(__('Edit Intern'), ['action' => 'edit', $intern->id]) ?> </li>
@@ -39,3 +41,4 @@ Kkgkin, nihon, kngw,
 <li><?= $this->Html->link(__('New Intern'), ['action' => 'add']) ?> </li>
 
 ```
+## paginate

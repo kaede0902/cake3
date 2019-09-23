@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 class InternsController extends AppController {
+    public $paginate = ['limit'=>8];
     public function index() {
         $this->set('defaultCss', false);
 
@@ -28,7 +29,6 @@ class InternsController extends AppController {
                 $this->Flash->success(
                     __('The intern has been saved.')
                 );
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Data save faliure'));

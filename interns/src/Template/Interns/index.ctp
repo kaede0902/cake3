@@ -24,7 +24,6 @@
 <?= $this->Html->link(__('+'), ['action' => 'add']) ?>
 </button>
 
-
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -37,4 +36,3 @@
             'Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total'
         )]) ?></p>
     </div>
-

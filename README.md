@@ -16,6 +16,7 @@ Use it: php composer.phar
 `php composer.phar create-project --prefer-dist cakephp/app interns`  
 ```
 ## Create Project
+`php composer.phar create-project --prefer-dist cakephp/app projectName`
 ```
 RYOs-MBP:cake3 kaede$ php composer.phar create-project --prefer-dist cakephp/app interns
 Installing cakephp/app (3.8.0)
@@ -64,6 +65,34 @@ bin/cake server
 ![alt](img/cake_server_terminal.png)  
 You can see status in `http://localhost:8765/`  
 ![alt](img/8765.png)
+
+## Connect the database
+If you write nothing to `config/app.php`,
+Err msg in localhost8765:
+```
+Database
+CakePHP is NOT able to connect to the database.
+Connection to database could not be established: SQLSTATE[HY000] [1045] 
+Access denied for user 'my_app'@'localhost' (using password: YES)
+```
+Change these obj in `app.php`:
+```
+In Datasources:
+'className' => 'Cake\Database\Connection',
+'driver' => 'Cake\Database\Driver\Mysql',
+'username' => 'root',
+'password' => '',
+'database' => 'yourDBname',
+
+```
+and create your db.  
+If the name was correct, You see in localhost8765:
+```
+Database
+CakePHP is able to connect to the database.
+```
+----------------------
+
 
 ## Make MVC by hands
 ### controller
@@ -191,11 +220,11 @@ Fuksm, Oita, Ueno,
 like this:  
 ```
 insert into interns
-(email,name,text,location)
+(email,name,text,location,univ)
 values ('sh@gmail.com', 'Name', 'Desc', 'Tokyo')
 ```
 
-
+----------------------------------
 
 
 ## Bake
