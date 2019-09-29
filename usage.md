@@ -68,7 +68,9 @@ You see SQL is connected now.
 
 (img)
 
-## create table
+## Manage table
+https://www.ritolab.com/entry/61
+### create table
 CakePHP can make tables by simple commands  
 https://qiita.com/ozawan/items/8144e02ca70519f3dcaf
 
@@ -82,8 +84,43 @@ This makes `20190924_migration.php`, but this did not made
 the table yet.
 
 You have to execute this by:
-```
+```cakephp
 bin/cake migrations migrate
 ```
 
 ![alt](img/products_desc.png)
+
+This made tables of the migration definition.
+
+### delete table
+```cakephp
+bin/cake bake migration DropTableName  
+```
+### add a column to table
+```cakephp
+bin/cake bake migration AddPriceToTableName price:decimal
+```
+### undo the migration
+```cakephp
+bin/cake migrations rollback
+```
+can reset.
+### delete a column
+```cake
+bin/cake bake migration RemovePriceFromTableName price
+```
+
+## Make Controller
+```cakephp
+bin/cake bake all tableNames
+```
+cmd can make proper files:  
+controller, model, ctps, 
+and the functions index, add, edit, view,  
+
+## See the CRUD in the browser
+making DB by SQL,  
+creating table and columns by migration,  
+creating controllers by bake all,  
+
+

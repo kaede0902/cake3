@@ -224,7 +224,6 @@ insert into interns
 values ('sh@gmail.com', 'Name', 'Desc', 'Tokyo')
 ```
 
-----------------------------------
 
 
 ## Bake
@@ -502,7 +501,7 @@ have to write inside on our own?
 ```
 RYOs-MBP:cms kaede$ bin/cake bake all products
 Bake All
----------------------------------------------------------------
+
 One moment while associations are detected.
 
 Baking table class for Products...
