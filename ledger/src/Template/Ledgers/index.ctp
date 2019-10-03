@@ -15,16 +15,26 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('customer_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('customer_tel1') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('customer_tel2') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('staff_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('work_category') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('reserved') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('customer_name') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('customer_tel1') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('customer_tel2') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('staff_name') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('work_category') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                     sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('reserved') ?></th>
+                <th scope="col"><?= $this->Paginator->
+                    sort('modified') ?></th>
+                <th scope="col" class="actions">
+                    <?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>

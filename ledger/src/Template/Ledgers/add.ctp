@@ -18,22 +18,21 @@
             $men = [
                 'Fukuda','Hayasi','Seki','Kubo'
             ];
-            $work_category = [
-                'preview','build','repair','etc'
-            ];
-
+            $work_category = array(
+                'preview' => 'preview',
+                'build' => 'build',
+                'repair' => 'repair',
+                'etc' => 'etc'
+            );
             echo $this->Form->control('customer_name');
             echo $this->Form->control('customer_adress');
             echo $this->Form->control('customer_tel1');
             echo $this->Form->control('customer_tel2');
-
-            // need arr, $members = [hukuda, hayasi,ryo]
-            echo $this->Form->control('staff_id', 
-                ['options' => $men,
-            ]);
-            echo $this->Form->control('work_category',
-                ['options' => $work_category,
-            ]);
+            // why this do not in?
+            echo $this->Form->control('staff_name');
+            echo $this->Form->select(
+                'work_category', $work_category
+            );
             echo $this->Form->control('content');
             echo $this->Form->control('reserved');
         ?>

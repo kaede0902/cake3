@@ -50,7 +50,6 @@ class LedgersController extends AppController {
             $this->Flash->error(
                 __('The ledger could not be saved.'));
         }
-        // POST
         $this->set(compact('ledger'));
     }
 
