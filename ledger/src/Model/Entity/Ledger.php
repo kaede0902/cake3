@@ -32,16 +32,6 @@ class Ledger extends Entity
      * @var array
      */
     protected $_accessible = [
-        'customer_name' => true,
-        'customer_adress' => true,
-        'customer_tel1' => true,
-        'customer_tel2' => true,
-        'staff_id' => true,
-        'work_category' => true,
-        'content' => true,
-        'created' => true,
-        'reserved' => true,
-        'modified' => true,
-        'staff' => true
+        '*' => true
     ];
 }

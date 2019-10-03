@@ -16,7 +16,10 @@
         <legend><?= __('Add Ledger') ?></legend>
         <?php
             $men = [
-                'Fukuda','Hayasi','Seki','Kubo'
+                'Fukuda' => 'Fukuda',
+                'Hayasi' => 'Hayasi',
+                'Seki' => 'Seki',
+                'Kubo' => 'Kubo'
             ];
             $work_category = array(
                 'preview' => 'preview',
@@ -29,10 +32,10 @@
             echo $this->Form->control('customer_tel1');
             echo $this->Form->control('customer_tel2');
             // why this do not in?
-            echo $this->Form->control('staff_name');
             echo $this->Form->select(
-                'work_category', $work_category
-            );
+                'staff_name', $men);
+            echo $this->Form->select(
+                'work_category', $work_category);
             echo $this->Form->control('content');
             echo $this->Form->control('reserved');
         ?>
