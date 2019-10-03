@@ -4,20 +4,31 @@
 https://miro.com/welcomeonboard/4xn6z63A4oGh00U02gFSqcDbqlIJdyEF3xp5ILzrjFVuFUWZkRt7PMBYu0enXYlr
 
 ## DB
-db: fesa, table: ledge, 
+db: fesa, table: ledgers, Ledgers,
 ```cakephp
 bin/cake bake migration createLedgers \
 customer_name:string[64] \
 customer_adress:text \
 customer_tel1:string[64] \
-customer_tel2:string[64] \
-staff_id:int \
+customer_tel2:string[64] \ staff_id:int \
 work_category:int \
 content:text \
 created:date \
 reserved:date \
 modified:date \
 ```
+```cakephp
+bin/cake bake migration \
+RemoveStaff_idFromLedgers;
+bin/cake bake migration \
+AddStaff_nameFromLedgers staff_name:string;
+
+bin/cake bake migration \
+RemoveWork_categoryFromLedgers;
+bin/cake bake migration \
+AddWork_categoryFromLedgers work_category:string;
+```
+
 ```cakephp
 bin/cake migrations migrate 
 bin/cake bake all ledgers
@@ -70,4 +81,86 @@ restrict staff to 0 - 3 select.
 
 vi template/ledgers/add.ctp
 
+change table int to str: done
 
+I want to allow null for every categories
+
+### err
+* cannot pass id from index to edit
+```
+Notice (8): Undefined variable: ledger 
+[APP/Template/Ledgers/edit.ctp, line 20]
+
+in edit.ctp Line 20:
+<?= $this->Form->create($ledger) ?>
+add, edit is err.
+No $ledger ???
+```
+#### in edit
+I forgot curd..
+```
+if ($this->request->is(['patch', 'post', 'put'])) {
+    $ledger = $this->Ledgers->patchEntity(
+        $ledger, $this->request->getData());
+    if ($this->Ledgers->save($ledger)) {
+        $this->Flash->success(
+            __('The ledger has been saved.'));
+
+        return $this->redirect(
+            ['action' => 'index']);
+    }
+    $this->Flash->error(
+        __('The ledger could not be saved.'));
+}
+// POST
+$this->set(compact('ledger'));
+```
+
+#### other view func
+```
+public function edit() {
+    $id = $this->request->query['id'];
+    $entity = $this->People->get($id); #
+    $this->set('entity', $entity);
+}
+```
+primary key null
+
+
+## index
+public function index(){
+    $ledgers = $this->paginate($this->Ledgers);
+    $this->set(compact('ledgers'));
+}
+// take arr from this-ledgers 
+// and pass by set compact.
+or 
+$this->Ledgers->find('all'));
+```php
+<?php foreach ($ledgers as $ledger): ?>
+<?= h($ledger->customer_name) ?>
+```
+select values by for each
+and print each ledger.
+## problem 
+what is $ledger?
+-> sent by controller.
+
+## add
+public function add() {
+    $ledger = $this->Ledgers->newEntity();
+    if ($this->request->is('post')) {
+        $ledger = $this->Ledgers->patchEntity(
+            $ledger, $this->request->getData());
+        if ($this->Ledgers->save($ledger)) {
+            $this->Flash->success(
+                __('The ledger has been saved.'));
+
+            return $this->redirect(
+                ['action' => 'index']);
+        }
+        $this->Flash->error(
+            __('The ledger could not be saved.'));
+    }
+    $this->set(compact('ledger'));
+}

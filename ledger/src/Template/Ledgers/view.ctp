@@ -7,10 +7,18 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Ledger'), ['action' => 'edit', $ledger->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Ledger'), ['action' => 'delete', $ledger->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ledger->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ledgers'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ledger'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(
+            __('Edit Ledger'), ['action' => 'edit', 
+            $ledger->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Ledger'), 
+            ['action' => 'delete', $ledger->id], 
+            ['confirm' => 
+            __('Are you sure you want to delete # {0}?', 
+            $ledger->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Ledgers'), 
+            ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Ledger'), 
+            ['action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="ledgers view large-9 medium-8 columns content">
@@ -29,8 +37,8 @@
             <td><?= h($ledger->customer_tel2) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Staff Id') ?></th>
-            <td><?= h($ledger->staff_id) ?></td>
+            <th scope="row"><?= __('Staff name') ?></th>
+            <td><?= h($ledger->staff_name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Work Category') ?></th>

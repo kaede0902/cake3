@@ -15,7 +15,12 @@
     <fieldset>
         <legend><?= __('Add Ledger') ?></legend>
         <?php
-            $men = ['F','H','O','R'];
+            $men = [
+                'Fukuda','Hayasi','Seki','Kubo'
+            ];
+            $work_category = [
+                'preview','build','repair','etc'
+            ];
 
             echo $this->Form->control('customer_name');
             echo $this->Form->control('customer_adress');
@@ -27,7 +32,7 @@
                 ['options' => $men,
             ]);
             echo $this->Form->control('work_category',
-                ['options' => ['0','1','2'],
+                ['options' => $work_category,
             ]);
             echo $this->Form->control('content');
             echo $this->Form->control('reserved');

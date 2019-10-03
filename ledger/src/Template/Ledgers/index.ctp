@@ -19,7 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('customer_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('customer_tel1') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('customer_tel2') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('staff_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('staff_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('work_category') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('reserved') ?></th>
@@ -34,7 +34,7 @@
                 <td><?= h($ledger->customer_name) ?></td>
                 <td><?= h($ledger->customer_tel1) ?></td>
                 <td><?= h($ledger->customer_tel2) ?></td>
-                <td><?= h($ledger->staff_id) ?></td>
+                <td><?= h($ledger->staff_name) ?></td>
                 <td><?= h($ledger->work_category) ?></td>
                 <td><?= h($ledger->created) ?></td>
                 <td><?= h($ledger->reserved) ?></td>

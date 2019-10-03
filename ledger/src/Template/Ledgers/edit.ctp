@@ -1,9 +1,4 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Ledger $ledger
- */
-?>
+// no $ledger
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -25,7 +20,7 @@
             echo $this->Form->control('customer_adress');
             echo $this->Form->control('customer_tel1');
             echo $this->Form->control('customer_tel2');
-            echo $this->Form->control('staff_id');
+            echo $this->Form->control('staff_name');
             echo $this->Form->control('work_category');
             echo $this->Form->control('content');
             echo $this->Form->control('reserved');
