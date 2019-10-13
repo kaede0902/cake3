@@ -43,5 +43,17 @@
             </div>
     </div>
     <?php endforeach; ?>
+    <div class='page'>
+    <?= $this->Html->link(__('NEW'), ['action' => 'add']) ?>
+        <p><?= $this->Paginator->counter(
+            ['format' => __('Page {{page}} of {{pages}}, 
+            showing {{current}} record(s) 
+            out of {{count}} total')]) ?></p>
+            <?= $this->Paginator->first('<< ' . __('first')) ?>
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->last(__('last') . ' >>') ?>
+    </div>
 </body>
 </html>

@@ -1,4 +1,7 @@
 # ledger app
+![UI](webroot/img/ledgerUI.png)
+* Responsive!
+![PC,Tab,Android](webroot/img/responsiveGrid.gif)
 
 ## UI, DB structure
 https://miro.com/welcomeonboard/4xn6z63A4oGh00U02gFSqcDbqlIJdyEF3xp5ILzrjFVuFUWZkRt7PMBYu0enXYlr

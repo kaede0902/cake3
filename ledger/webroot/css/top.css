@@ -71,4 +71,10 @@ body {
 .content {
     grid-column: 2/6;
 }
-  
+.page {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    text-align:center;
+}

@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 class LedgersController extends AppController {
+    public $paginate = ['limit'=>6];
     public function index(){
         $ledgers = $this->paginate($this->Ledgers);
         $this->set('defaultCss', false);
