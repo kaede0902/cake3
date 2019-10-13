@@ -6,7 +6,7 @@ use App\Controller\AppController;
 class LedgersController extends AppController {
     public function index(){
         $ledgers = $this->paginate($this->Ledgers);
-
+        $this->set('defaultCss', false);
         $this->set(compact('ledgers'));
     }
     public function view($id = null) {

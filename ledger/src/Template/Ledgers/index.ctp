@@ -1,65 +1,47 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Ledger'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="ledgers index large-9 medium-8 columns content">
-    <h3><?= __('Ledgers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->
-                    sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('customer_name') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('customer_tel1') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('customer_tel2') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('staff_name') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('work_category') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                     sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('reserved') ?></th>
-                <th scope="col"><?= $this->Paginator->
-                    sort('modified') ?></th>
-                <th scope="col" class="actions">
-                    <?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($ledgers as $ledger): ?>
-            <tr>
-                <td><?= $this->Number->format($ledger->id) ?></td>
-                <td><?= h($ledger->customer_name) ?></td>
-                <td><?= h($ledger->customer_tel1) ?></td>
-                <td><?= h($ledger->customer_tel2) ?></td>
-                <td><?= h($ledger->staff_name) ?></td>
-                <td><?= h($ledger->work_category) ?></td>
-                <td><?= h($ledger->created) ?></td>
-                <td><?= h($ledger->reserved) ?></td>
-                <td><?= h($ledger->modified) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $ledger->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ledger->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ledger->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ledger->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <?= $this->Html->css('top'); ?>
+    <title>ledger</title>
+</head>
+<body>
+    <?php foreach ($ledgers as $ledger): ?>
+    <div class="wrapper">
+            <div class="num name row1">
+                NAME<br><?= h($ledger->customer_name) ?>
+            </div>
+            <div class="num adress row1">
+                ADRESS<br><?= h($ledger->customer_adress) ?>
+            </div>
+            <div class="num id row1">
+                No.<?= h($ledger->id) ?><br>
+            <?= $this->Html->link(__('Edit'), 
+                ['action' => 'edit', $ledger->id]) ?>
+            </div>
+            <div class="num created row2">
+                created<br>
+                <?= h($ledger->created->format('m / d (D)')) ?>
+            </div>
+            <div class="num going row2">
+                reserved<br>
+                <?= h($ledger->reserved->format('m / d (D)')) ?>
+            </div>
+            <div class="num tel_1 row2">
+                TEL1: <?= h($ledger->customer_tel1) ?><br>
+                TEL2: <?= h($ledger->customer_tel2) ?>
+            </div>
+            <div class="num staff row2">
+                staff<br><?= h($ledger->staff_name) ?>
+            </div>
+            <div class="num work_cat row3">
+                <?= h($ledger->work_category) ?>
+            </div>
+            <div class="num content row3">
+                content<br>
+                <?= h($ledger->content) ?>
+            </div>
     </div>
-</div>
+    <?php endforeach; ?>
+</body>
+</html>

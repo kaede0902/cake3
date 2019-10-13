@@ -164,3 +164,17 @@ public function add() {
     }
     $this->set(compact('ledger'));
 }
+
+## date obj
+```php
+$ledger->created
+// 10/3/19
+$ledger->created->format('Y-M-D')
+// 2019-Oct-Thu
+$ledger->created->format('Y-m-d')
+// 2019-10-03
+$ledger->created->format('H:i:s')
+// 00:00:00 ??? why???
+$ledger->created->format('m/d D')
+// 2019-10-03
+```
