@@ -1,16 +1,26 @@
 # ledger app
 ## UI
+### Response Design
 * work in PC and Tablet and Smart phones!!
 
 ![UI](responsive.gif)
 
+### Basic CRUD system
 * Create your work card
 * View your work cards list
 * Edit your work cards list
 
 ![crud](crud.gif)
 
+### DB Design
 https://miro.com/welcomeonboard/4xn6z63A4oGh00U02gFSqcDbqlIJdyEF3xp5ILzrjFVuFUWZkRt7PMBYu0enXYlr
+
+### Add Page Design
+* Not yet
+### Find Cards System
+* Not yet, use browser finder menu
+### Deployment 
+* Not yet
 
 ## DB
 db: fesa, table: ledgers, Ledgers,
