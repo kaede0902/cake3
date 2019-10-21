@@ -7,7 +7,9 @@
 </head>
 <body>
     <?php foreach ($ledgers as $ledger): ?>
-    <div class="wrapper">
+    <div class="wrapper" 
+        onclick='location.href = 
+        "ledgers/edit/<?= $ledger->id ?>"'>
             <div class="num name row1">
                 NAME<br><?= h($ledger->customer_name) ?>
             </div>
@@ -43,17 +45,20 @@
             </div>
     </div>
     <?php endforeach; ?>
-    <div class='page'>
-    <?= $this->Html->link(__('NEW'), ['action' => 'add']) ?>
-        <p><?= $this->Paginator->counter(
-            ['format' => __('Page {{page}} of {{pages}}, 
-            showing {{current}} record(s) 
-            out of {{count}} total')]) ?></p>
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+    <div class='bottom'>
+<button>
+    <?= $this->Html->link(__(' ADD NEW'), ['action' => 'add']) ?>
+</button>
+        <p class='cnt'>
+            <?= $this->Paginator->counter(
+            ['format' => __('P. {{page}} / {{pages}}, 
+            showing {{current}} / {{count}} cards')]) ?>
+        </p>
+        <div class="pages">
+            <?= $this->Paginator->prev('< ' . __('prev')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+        </div>
     </div>
 </body>
 </html>

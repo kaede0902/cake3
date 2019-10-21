@@ -30,6 +30,9 @@ body {
     display: grid;
     grid-gap: 8px;
 }
+.wrapper:hover{
+    opacity: 0.6;
+}
 .num{
     background: #222;
     padding: 10px;
@@ -71,10 +74,24 @@ body {
 .content {
     grid-column: 2/6;
 }
-.page {
+button {
+    background: #444;
+}
+.bottom {
     margin: 0 auto;
     position: absolute;
     bottom: 5%;
-    left: 50%;
+    left: 40%;
     text-align:center;
+    list-style-type: none;
 }
+.cnt {
+    font-size: 1.3em;
+}
+.pages{
+    font-size: 2em;
+    display: flex; 
+    text-align: center;
+    justify-content: space-around;
+}
+
