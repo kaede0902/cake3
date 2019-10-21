@@ -1,4 +1,12 @@
 # ledger app
+## Why I made this
+* I hate paper work. 
+* In workplace, when recieving works, making many many many 
+work cards and notebooks, 
+* Managing these paper cards and notes are painful, and 
+slow, generating mistakes.
+* I am making this for eliminate paperwork. v(^ ^)v  
+
 ## UI
 ### Response Design
 * work in PC and Tablet and Smart phones!!
