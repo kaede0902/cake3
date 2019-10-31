@@ -15,6 +15,8 @@ class LedgersController extends AppController {
         $this->set('ledger', $ledger);
     }
     public function add() {
+        $this->layout = false;
+        $this->set('defaultCss', false);
         $ledger = $this->Ledgers->newEntity();
         if ($this->request->is('post')) {
             $ledger = $this->Ledgers->patchEntity(

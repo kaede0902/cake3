@@ -1,0 +1,53 @@
+/* cake ledger add  */
+* {
+    background: #000;
+    color: #fff;
+} 
+form {
+    display: grid;
+    padding: 1em;
+    background: #222;
+    border: 1px solid #fff;
+    margin: 2rem auto 0 auto;
+    max-width: 600px;
+    padding: 1em;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+}
+form input {
+    background: #111;
+    border: 1px solid #fff;
+}
+form button {
+    background: lightgrey;
+    color: #000;
+    padding: 0.7em;
+    width: 100%;
+    border: 0;
+    font-size: 0.9em;
+    grid-column: span 2;
+}
+label {
+    padding: 0.5em 0.5em 0.5em 0;
+    grid-column: 1/2;
+    text-align: right;
+}
+input, button {
+    grid-column: 2/3;
+}
+input {
+    padding: 0.7em;
+    margin-bottom: 0.5em;
+}
+input:focus, textarea:focus {
+    outline: 3px solid gold;
+}
+@media (min-width: 400px) {
+    form {
+    }
+    label {
+    }
+    input, button {
+        grid-column: 2/3;
+    }
+}

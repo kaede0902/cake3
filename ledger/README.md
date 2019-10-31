@@ -205,3 +205,13 @@ $ledger->created->format('H:i:s')
 $ledger->created->format('m/d D')
 // 2019-10-03
 ```
+## CSS
+https://www.carnaghan.com/knowledge-base/disabling-the-layout-and-the-view-in-cakephp/
+* this will not work in add.ctp
+```css
+$this->set('defaultCss', false);
+```
+* So try this
+```css
+$this->layout = false;
+```

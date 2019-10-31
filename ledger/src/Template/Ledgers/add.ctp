@@ -1,29 +1,17 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Ledger $ledger
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Ledgers'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="ledgers form large-9 medium-8 columns content">
+<?= $this->Html->css('form'); ?>
+<ul>
+    <li><?= __('Actions') ?></li>
+    <li><?= $this->Html->link(__('Ledgers'), 
+        ['action' => 'index']) ?></li>
+</ul>
+<div class="wrapper">
     <?= $this->Form->create($ledger) ?>
-    <fieldset>
-        <legend><?= __('Add Ledger') ?></legend>
         <?php
-            $work_category = array(
-                'preview' => 'preview',
-                'build' => 'build',
-                'repair' => 'repair',
-                'etc' => 'etc'
-            );
             echo $this->Form->control('customer_name',[
                     'placeholder' => 'name',
-                    'label' => __('NAME'),
+                    'label' => [
+                        'text' => 'NAME HERE',
+                    ],
             ]);
             echo $this->Form->control('customer_adress',[
                     'placeholder' => 'adress',
@@ -64,12 +52,11 @@
                     ['value' => 'Etc', 
                         'text' => __('Etc')],
                 ]
-
             ]);
             echo $this->Form->control('content');
             echo $this->Form->control('reserved');
         ?>
-    </fieldset>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
