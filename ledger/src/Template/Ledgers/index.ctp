@@ -46,9 +46,10 @@
     </div>
     <?php endforeach; ?>
     <div class='bottom'>
-<button>
-    <?= $this->Html->link(__(' ADD NEW'), ['action' => 'add']) ?>
-</button>
+        <div class="new">
+            <?= $this->Html->link(__(' ADD NEW'), [
+                'action' => 'add']) ?>
+        </div>
         <p class='cnt'>
             <?= $this->Paginator->counter(
             ['format' => __('P. {{page}} / {{pages}}, 

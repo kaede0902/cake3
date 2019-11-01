@@ -1,29 +1,33 @@
 <?= $this->Html->css('form'); ?>
+<head>
 <ul>
     <li><?= __('Actions') ?></li>
     <li><?= $this->Html->link(__('Ledgers'), 
         ['action' => 'index']) ?></li>
 </ul>
+</head>
 <div class="wrapper">
     <?= $this->Form->create($ledger) ?>
         <?php
             echo $this->Form->control('customer_name',[
-                    'placeholder' => 'name',
+                    'placeholder' => 'TANAKA TARO',
                     'label' => [
                         'text' => 'NAME HERE',
                     ],
             ]);
             echo $this->Form->control('customer_adress',[
-                    'placeholder' => 'adress',
+                'placeholder' => 'Yokohama city Kanagawa Section 
+                Hakuraku 100',
                     'label' => __('ADRESS'),
             ]);
             echo $this->Form->control('customer_tel1',[
-                    'placeholder' => 'telphone number',
-                    'label' => __('TEL NUMBER'),
+                    'placeholder' => '045-123-1234',
+                    'label' => __('TEL NUMBER 1'),
             ]);
-            echo $this->Form->control('customer_tel2');
-
-
+            echo $this->Form->control('customer_tel2',[
+                    'placeholder' => '090-1234-1234',
+                    'label' => __('TEL NUMBER 2'),
+            ]);
 
             echo $this->Form->select('staff_name', [
                 'empty'=>__( '( Choose Staff )' ),
@@ -53,8 +57,14 @@
                         'text' => __('Etc')],
                 ]
             ]);
-            echo $this->Form->control('content');
-            echo $this->Form->control('reserved');
+            echo $this->Form->control('content',[
+                'placeholder' => 'My TV does not work, 
+I want air conditoner',
+                'label' => __('CONTENT HERE'),
+            ]);
+            echo $this->Form->control('reserved',[
+                'label' => __('GOING'),
+            ]);
         ?>
 
     <?= $this->Form->button(__('Submit')) ?>

@@ -74,9 +74,6 @@ body {
 .content {
     grid-column: 2/6;
 }
-button {
-    background: #444;
-}
 .bottom {
     margin: 0 auto;
     position: absolute;
@@ -90,8 +87,18 @@ button {
 }
 .pages{
     font-size: 2em;
+    width: 100%;
     display: flex; 
     text-align: center;
     justify-content: space-around;
 }
-
+.new {
+    display:inline-block;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2em;
+}
+.new:hover{
+  border-bottom: 2px solid #fff;
+}
