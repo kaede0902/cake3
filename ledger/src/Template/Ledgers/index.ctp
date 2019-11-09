@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <?= $this->Html->css('nav'); ?>
     <?= $this->Html->css('top'); ?>
-    <title>ledger</title>
+    <title>LEDGERs</title>
 </head>
 <body>
+    <?= $this->element('nav'); ?>
+
     <?php foreach ($ledgers as $ledger): ?>
     <div class="wrapper" 
         onclick='location.href = 
@@ -50,16 +53,16 @@
             <?= $this->Html->link(__(' ADD NEW'), [
                 'action' => 'add']) ?>
         </div>
-        <p class='cnt'>
-            <?= $this->Paginator->counter(
-            ['format' => __('P. {{page}} / {{pages}}, 
-            showing {{current}} / {{count}} cards')]) ?>
-        </p>
         <div class="pages">
             <?= $this->Paginator->prev('< ' . __('prev')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </div>
+        <p class='cnt'>
+            <?= $this->Paginator->counter(
+            ['format' => __('P. {{page}} / {{pages}}, 
+            showing {{current}} / {{count}} cards')]) ?>
+        </p>
     </div>
 </body>
 </html>

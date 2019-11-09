@@ -1,11 +1,9 @@
+<title>ADD</title>
+<?= $this->Html->css('nav'); ?>
+<?= $this->element('nav'); ?>
+
 <?= $this->Html->css('form'); ?>
-<head>
-<ul>
-    <li><?= __('Actions') ?></li>
-    <li><?= $this->Html->link(__('Ledgers'), 
-        ['action' => 'index']) ?></li>
-</ul>
-</head>
+
 <div class="wrapper">
     <?= $this->Form->create($ledger) ?>
         <?php

@@ -20,6 +20,7 @@
     margin:0;
     padding: 0; 
     color: #fff;
+    text-decoration: none;
 }
 body {
     background: #000;
@@ -92,13 +93,26 @@ body {
     text-align: center;
     justify-content: space-around;
 }
-.new {
-    display:inline-block;
+.pages li a {
+    padding: 0 10px;
+    margin:0 5px;
+    border-radius: 20px;
+    background-color: rgba(0,136,167,1);
+}
+.pages li a:hover{
+    color: #333;
+}
+.new a {
+    transition: all 0.3s ease 0s;
+    background-color: rgba(0,136,167,1);
+    display:block;
     width: 100%;
     font-size: 2rem;
     font-weight: 700;
+    padding: 8px 32px;
     margin-bottom: 2em;
+    border-radius: 30px;
 }
-.new:hover{
-  border-bottom: 2px solid #fff;
+.new a:hover {
+    color: #333;
 }
