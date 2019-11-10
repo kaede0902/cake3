@@ -35,12 +35,12 @@ body {
     opacity: 0.6;
 }
 .num{
-    background: #222;
+    background: #222a;
     padding: 10px;
     height: 64px;
 }
 .num:nth-child(even) {
-    background: #333;
+    background: #333a;
 }
 .row1{ grid-row: 1/2; }
 .name {
@@ -115,4 +115,7 @@ body {
 }
 .new a:hover {
     color: #333;
+}
+.done {
+    background-color: rgba(0,136,167,1);
 }

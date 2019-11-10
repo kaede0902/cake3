@@ -10,7 +10,11 @@
     <?= $this->element('nav'); ?>
 
     <?php foreach ($ledgers as $ledger): ?>
-    <div class="wrapper" 
+    <?php echo(
+    $ledger->done?
+    '<div class="wrapper done"':
+    '<div class="wrapper"'
+    ) ?>
         onclick='location.href = 
         "ledgers/edit/<?= $ledger->id ?>"'>
             <div class="num name row1">
