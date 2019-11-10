@@ -35,12 +35,9 @@ body {
     opacity: 0.6;
 }
 .num{
-    background: #222a;
+    background: #333a;
     padding: 10px;
     height: 64px;
-}
-.num:nth-child(even) {
-    background: #333a;
 }
 .row1{ grid-row: 1/2; }
 .name {
@@ -117,5 +114,5 @@ body {
     color: #333;
 }
 .done {
-    background-color: rgba(0,136,167,1);
+    background-color: rgba(30,139,219,1);
 }
