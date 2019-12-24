@@ -36,18 +36,15 @@ class LedgersController extends AppController {
     }
 
     public function edit($id = null) {
-        // return the GET data (in url)
+        $this->layout = false;
+        $this->set('defaultCss', false);
         $ledger = $this->Ledgers->get($id);
-
-        // this is POST only -------------
         if ($this->request->is(['patch', 'post', 'put'])) {
-
             $ledger = $this->Ledgers->patchEntity(
                 $ledger, $this->request->getData());
             if ($this->Ledgers->save($ledger)) {
                 $this->Flash->success(
                     __('The ledger has been saved.'));
-
                 return $this->redirect(
                     ['action' => 'index']);
             }

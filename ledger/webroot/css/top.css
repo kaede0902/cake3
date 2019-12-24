@@ -1,3 +1,4 @@
+
 /* larger than 1450px but 1305 use waru 0.9*/
 @media only screen and (min-width: 1611px) {
   .wrapper {
@@ -32,10 +33,10 @@ body {
     grid-gap: 8px;
 }
 .wrapper:hover{
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .num{
-    background: #333a;
+    background-color: rgba(30,139,219,.5);
     padding: 10px;
     height: 64px;
 }
@@ -114,5 +115,5 @@ body {
     color: #333;
 }
 .done {
-    background-color: rgba(30,139,219,1);
+    opacity: 0.5;
 }

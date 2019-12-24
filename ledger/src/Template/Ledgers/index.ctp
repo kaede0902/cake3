@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <?= $this->Html->css('nav'); ?>
     <?= $this->Html->css('top'); ?>
     <title>LEDGERs</title>
+    <?= $this->Html->css('copiednav'); ?>
+    <?= $this->element('copiednav'); ?>
 </head>
 <body>
-    <?= $this->element('nav'); ?>
 
     <?php foreach ($ledgers as $ledger): ?>
     <?php echo(
